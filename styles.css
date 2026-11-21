@@ -1,0 +1,235 @@
+/* 1. Блокова модель: box-sizing, margin та padding для всіх елементів */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* 2. Селектор тегу */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f1f5f9;
+    color: #1e293b;
+    padding-bottom: 30px;
+}
+
+/* 3. Селектор ID */
+#main-header {
+    background-color: #1e3a8a;
+    color: #ffffff;
+    padding: 30px 20px; /* керування padding */
+    text-align: center;
+    border-bottom: 4px solid #3b82f6; /* керування border */
+}
+
+#main-header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 6px; /* керування margin */
+}
+
+/* 4. Макет навігації на Flexbox */
+.nav-bar ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    list-style: none;
+    margin-top: 20px;
+}
+
+.nav-bar a {
+    color: #e2e8f0;
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* 5. Псевдоклас 1: :hover */
+.nav-bar a:hover {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+/* 6. Псевдоклас 2: :focus */
+a:focus {
+    outline: 2px solid #60a5fa;
+    outline-offset: 3px;
+}
+
+/* Головний контейнер сторінки */
+.content-container {
+    max-width: 900px;
+    margin: 30px auto; /* керування margin */
+    padding: 0 16px;   /* керування padding */
+}
+
+/* Макет секцій на Flexbox */
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 7. Селектор класу */
+.card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0; /* керування border */
+    border-radius: 10px;
+    padding: 24px;            /* керування padding */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.card h2 {
+    color: #1e3a8a;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 6px;
+    margin-bottom: 14px;
+    font-size: 1.35rem;
+}
+
+.card h3 {
+    margin-top: 10px;
+    margin-bottom: 4px;
+    color: #334155;
+}
+
+.subtitle {
+    color: #64748b;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+}
+
+.card ul {
+    padding-left: 20px;
+    margin-top: 6px;
+}
+
+/* 8. Селектор атрибута */
+a[target="_blank"] {
+    font-weight: 600;
+    color: #2563eb;
+}
+
+/* Футер */
+#contacts {
+    max-width: 900px;
+    margin: 20px auto 0 auto;
+    padding: 24px;
+    background-color: #0f172a;
+    color: #f1f5f9;
+    border-radius: 10px;
+}
+
+#contacts h2 {
+    color: #93c5fd;
+    margin-bottom: 12px;
+}
+
+#contacts address {
+    font-style: normal;
+}
+
+#contacts ul {
+    list-style: none;
+    line-height: 1.8;
+}
+
+#contacts a {
+    color: #60a5fa;
+    text-decoration: none;
+}
+
+#contacts a:hover {
+    text-decoration: underline;
+}
+
+#contacts p {
+    margin-top: 14px;
+    color: #94a3b8;
+}
+
+/* 9. Медіазапит для адаптації на вузьких екранах */
+@media (max-width: 600px) {
+    #main-header h1 {
+        font-size: 1.7rem;
+    }
+
+    .nav-bar ul {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .card {
+        padding: 16px;
+    }
+}
+
+/* --- ДОДАТКОВІ СТИЛІ ДЛЯ ТЕМНОЇ ТЕМИ ТА ВІДГУКІВ --- */
+body {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Темний режим для фону сторінки */
+body.dark {
+    background-color: #121212;
+    color: #e2e8f0;
+}
+
+/* Примусово робимо картки та хедер темними у нічному режимі */
+body.dark .card, 
+body.dark #main-header {
+    background-color: #1e1e1e;
+    border-color: #333;
+}
+
+/* Змінюємо колір заголовків та тексту на картках у темній темі */
+body.dark .card h2, 
+body.dark .card h3 {
+    color: #93c5fd;
+}
+body.dark .card p, 
+body.dark .card li {
+    color: #cbd5e1;
+}
+
+/* Перетворюємо текст відгуків на красиві картки */
+#reviews-container div {
+    background: #ffffff;
+    color: #0f172a;
+    padding: 16px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Робимо картки відгуків темними у нічному режимі */
+body.dark #reviews-container div {
+    background: #2a2a2a;
+    color: #f1f5f9;
+    border-color: #444;
+}
+
+/* Стилізуємо email відправника відгуку */
+#reviews-container strong {
+    color: #2563eb;
+    font-size: 1.1em;
+    display: block;
+    margin-bottom: 6px;
+}
+body.dark #reviews-container strong {
+    color: #60a5fa;
+}
+
+/* Ховаємо стандартну лінію <hr>, оскільки тепер є рамки */
+#reviews-container hr {
+    display: none;
+}
+
+/* Темний футер */
+body.dark #contacts {
+    background-color: #000000;
+    border-color: #222;
+}

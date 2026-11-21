@@ -4,92 +4,237 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Аксьонова Поліна</title>
+
+    <!-- 1. External styles (Зовнішній файл) -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- 2. Internal styles (Внутрішні стилі в HTML) -->
+    <style>
+        .accent-text {
+            color: #dbeafe;
+            font-style: italic;
+            margin-top: 6px;
+        }
+
+        /* --- Стилі для Лабораторної №4 --- */
+        body { 
+            transition: background-color 0.3s, color 0.3s; 
+        }
+        
+        /* Темна тема */
+        body.dark { 
+            background-color: #121212; 
+            color: #e2e8f0; 
+        }
+        body.dark .card, body.dark #main-header { 
+            background-color: #1e1e1e; 
+            border-color: #333; 
+        }
+        body.dark .card h2, body.dark .card h3 { 
+            color: #93c5fd; 
+        }
+        body.dark #reviews-container div { 
+            background: #2a2a2a; 
+            color: #f1f5f9; 
+            border-color: #444; 
+        }
+        body.dark #contacts {
+            background-color: #111;
+        }
+
+        /* Картки відгуків */
+        #reviews-container div { 
+            background: #f8fafc; 
+            color: #0f172a; 
+            padding: 15px; 
+            margin-bottom: 15px; 
+            border-radius: 8px; 
+            border: 1px solid #e2e8f0; 
+        }
+        #reviews-container strong {
+            color: #2563eb;
+        }
+
+        /* Модальне вікно зворотного зв'язку */
+        #modal { 
+            display: none; 
+            position: fixed; 
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            padding: 24px; 
+            background: #ffffff; 
+            color: #0f172a; 
+            border: 1px solid #ccc; 
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2); 
+            z-index: 1000; 
+            width: 90%;
+            max-width: 400px;
+        }
+        body.dark #modal {
+            background: #1e1e1e;
+            color: #e2e8f0;
+            border-color: #444;
+        }
+        #modal input, #modal textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+        #modal button {
+            padding: 10px 15px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background: #2563eb;
+            color: white;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        #modal button#close-modal {
+            background: #64748b;
+        }
+        
+        /* Кнопка перемикання теми */
+        #theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+    </style>
 </head>
 <body>
 
-    <header>
+    <!-- Кнопка ручного перемикання теми -->
+    <button id="theme-toggle">Перемкнути тему</button>
+
+    <!-- Секція резюме -->
+    <header id="main-header">
         <h1>Аксьонова Поліна</h1>
-        <p><strong>Посада:</strong> Студент </p>
+        <!-- 3. Inline style (Вбудований стиль) -->
+        <p style="font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">
+            <strong>Посада:</strong> Студент
+        </p>
+        <p class="accent-text">«Швидко навчаюся та застосовую знання на практиці»</p>
         
-        <nav>
+        <nav class="nav-bar">
             <ul>
                 <li><a href="#about">Про мене</a></li>
                 <li><a href="#experience">Досвід роботи</a></li>
                 <li><a href="#education">Освіта</a></li>
                 <li><a href="#skills">Навички</a></li>
+                <li><a href="#lab4">Відгуки</a></li>
                 <li><a href="#contacts">Контакти</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        
- 
-        <section id="about">
-            <h2>Про мене</h2>
-            <p>
-                Вмотивована студентка другого курсу кібербезпеки. Навчаюся у групі КБ-202. Швидко Навчаюся
-                та шукаю можливості застосувати свої знання на практиці.
-            </p>
-        </section>
-
-        <!-- Секція: Досвід роботи -->
-        <section id="experience">
-            <h2>Досвід роботи</h2>
-
-
-            <article>
-                <h3> Контент-менеджер</h3>
-                <p><em>Digital Studio | Січень 2023 — Травень 2023</em></p>
-                <ul>
-                    <li>Наповнення сайтів текстовим та графічним контентом</li>
-                    <li>Форматування статей та блогів за допомогою HTML-розмітки</li>
-                </ul>
-            </article>
-        </section>
-
-        <!-- Секція: Освіта -->
-        <section id="education">
-            <h2>Освіта</h2>
-            <article>
-                <h3>Бакалавр кібербезпеки </h3>
-                <p><em>Національний університет «Львівська політехніка» | 2025 — 2030</em></p>
-                <p>Спеціальність: Кібербезпека та захист інформації</p>
-            </article>
-        </section>
-
-        <section id="skills">
-            <h2>Навички</h2>
+    <div class="content-container">
+        <main>
             
-            <h3>Технічні навички:</h3>
-            <ul>
-                <li>HTML</li>
-                <li>Phython</li>
-                <li>Робота з системою контролю версій Git та GitHub</li>
-            </ul>
+            <section id="about" class="card">
+                <h2>Про мене</h2>
+                <p>
+                    Вмотивована студентка другого курсу кібербезпеки. Навчаюся у групі КБ-202. Швидко навчаюся
+                    та шукаю можливості застосувати свої знання на практиці.
+                </p>
+            </section>
 
-            <h3>Мови:</h3>
-            <ul>
-                <li>Українська — рідна</li>
-                <li>Англійська — Intermediate (B1)</li>
-            </ul>
-        </section>
+            <section id="experience" class="card">
+                <h2>Досвід роботи</h2>
+                <article>
+                    <h3>Контент-менеджер</h3>
+                    <p class="subtitle"><em>Digital Studio | Січень 2023 — Травень 2023</em></p>
+                    <ul>
+                        <li>Наповнення сайтів текстовим та графічним контентом</li>
+                        <li>Форматування статей та блогів за допомогою HTML-розмітки</li>
+                    </ul>
+                </article>
+            </section>
 
-    </main>
+            <section id="education" class="card">
+                <h2>Освіта</h2>
+                <article>
+                    <h3>Бакалавр кібербезпеки</h3>
+                    <p class="subtitle"><em>Національний університет «Львівська політехніка» | 2025 — 2030</em></p>
+                    <p>Спеціальність: Кібербезпека та захист інформації</p>
+                </article>
+            </section>
 
+            <section id="skills" class="card">
+                <h2>Навички</h2>
+                <h3>Технічні навички:</h3>
+                <ul>
+                    <li>HTML5 / CSS3</li>
+                    <li>Python</li>
+                    <li>Робота з системою контролю версій Git та GitHub</li>
+                </ul>
+                <h3>Мови:</h3>
+                <ul>
+                    <li>Українська — рідна</li>
+                    <li>Англійська — Intermediate (B1)</li>
+                </ul>
+            </section>
 
+            <!-- Секція Лабораторної №4 -->
+            <section id="lab4" class="card">
+                <h2>Відгуки роботодавців</h2>
+                <div id="reviews-container"></div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Модальне вікно (приховане за замовчуванням) -->
+    <div id="modal">
+        <h3 style="margin-bottom: 10px;">Зворотний зв'язок</h3>
+        <form action="https://formspree.io/f/xrppoyzo" method="POST">
+            <input type="text" name="name" placeholder="Ім'я" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="tel" name="phone" placeholder="Номер телефону">
+            <textarea name="message" placeholder="Ваше повідомлення" rows="4" required></textarea>
+            <div style="margin-top: 5px;">
+                <button type="submit">Надіслати</button>
+                <button type="button" id="close-modal">Закрити</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Футер -->
     <footer id="contacts">
         <h2>Контактна інформація</h2>
         <address>
             <ul>
-                <li>Email: <a href="polina.aksonova.kb.2025@lpnu.ua">polina.aksonova.kb.2025@lpnu.ua</a></li>
-                <li>Телефон: <a href="tel:+380777777">+38 (077) 777-77-77</a></li>
+                <li>Email: <a href="mailto:polina.aksonova.kb.2025@lpnu.ua">polina.aksonova.kb.2025@lpnu.ua</a></li>
+                <li>Телефон: <a href="tel:+380777777777">+38 (077) 777-77-77</a></li>
+                <li>GitHub: <a href="https://github.com" target="_blank" rel="noopener noreferrer">github.com/profile</a></li>
                 <li>Місто: Львів, Україна</li>
-                
             </ul>
         </address>
-        <p><small>&copy; 2026 Аксьонова Поліна. Всі права захищено</small></p>
+        
+        <hr style="border-color: #334155; margin: 25px 0 15px 0;">
+        
+        <!-- Місце для системної інформації з LocalStorage -->
+        <p id="system-info" style="color: #94a3b8; font-size: 0.9em; text-align: center; margin-bottom: 10px;"></p>
+        <p style="text-align: center;"><small>&copy; 2026 Аксьонова Поліна. Всі права захищено</small></p>
     </footer>
+
+    <!-- Підключення JS логіки -->
+    <script src="script.js"></script>
 
 </body>
 </html>
