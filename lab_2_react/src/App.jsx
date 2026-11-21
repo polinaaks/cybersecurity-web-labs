@@ -3,8 +3,8 @@ import Header from './components/Header';
 import Experience from './components/Experience';
 import Education from './components/Education';
 import Footer from './components/Footer';
-import Reviews from './Reviews';
-import ContactForm from './ContactForm';
+import Reviews from "./components/reviews";
+import ContactForm from "./components/contactform";
 
 export default function App() {
   const [theme, setTheme] = useState('light');
